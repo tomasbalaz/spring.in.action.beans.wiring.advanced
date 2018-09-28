@@ -1,38 +1,27 @@
 package spring.in.action.beans.wiring.advanced;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import static org.junit.Assert.assertNotNull;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
-    }
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
+import spring.in.action.beans.wiring.advanced.config.Config;
+import spring.in.action.beans.wiring.advanced.model.BlankDisc;
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
-    }
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = Config.class)
+public class AppTest {
+	
+	@Autowired
+	private BlankDisc cd;
+
+	@Test
+	public void cdShouldNotBeNull() {
+		assertNotNull(cd);
+		System.out.println(cd.getArtist());
+		System.out.println(cd.getTitle());
+	}
 }
