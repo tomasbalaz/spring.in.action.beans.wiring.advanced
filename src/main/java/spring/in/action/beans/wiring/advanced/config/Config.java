@@ -1,4 +1,4 @@
-package spring.in.action.beans.wiring.advanced;
+package spring.in.action.beans.wiring.advanced.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
